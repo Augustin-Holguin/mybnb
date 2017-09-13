@@ -65,3 +65,4 @@ group :production do
 end
 
 gem 'geocoder'
+gem 'jquery-ui-rails'
