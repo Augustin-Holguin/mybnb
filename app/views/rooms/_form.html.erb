@@ -1,0 +1,133 @@
+<div class ="panel panel-default">
+    <div class="panel-heading">
+        Become a Mybnb host
+    </div>
+    <div class="panel-body">
+        <div class="container">
+            <%= form_for @room do |f| %>
+                <div class="row">
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Accomodation type</label>
+                            <%= f.select :home_type, [["House", "House"],["Flat", "Flat"],
+                            ["Bed & Breakfast", "Bed & Breakfast"]], id: "home_type", prompt: "Select",
+                            class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Room type</label>
+                            <%= f.select :room_type, [["Entire home", "Entire home"],["Private room", "Private room"],
+                            ["Shared room", "Shared room"]], prompt: "Select",
+                            class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Number of people?</label>
+                            <%= f.select :accomodate, [["1 person",1],["2 persons",2],
+                            ["3 persons",3], ["4 persons",4],["5 persons",5],
+                            ["6 persons",6]], prompt: "Select",
+                            class: "form-control" %>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Rooms</label>
+                            <%= f.select :bed_room, [["1",1],["2",2],
+                            ["3",3], ["4",4]], prompt: "Select",
+                            class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Bathrooms</label>
+                            <%= f.select :accomodate, [["1",1],["2",2],
+                            ["3",3], ["4",4]], prompt: "Select",
+                            class: "form-control" %>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label>Accomodation name</label>
+                        <%= f.text_field :listing_name, placeholder: "Name of listing", 
+                        class:"form-control" %> 
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label>Summary</label>
+                        <%= f.text_area :summary, placeholder: "Describe your accomodation", 
+                        class:"form-control" %> 
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label>Address</label>
+                        <%= f.text_field :address, placeholder: "Location of accomodation", 
+                        class:"form-control" %> 
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <%= f.check_box :is_wifi %>Wifi
+                        </div>
+                        <div class="form-group">
+                            <%= f.check_box :is_tv %>TV
+                        </div>
+                        <div class="form-group">
+                            <%= f.check_box :is_closet %>Closet
+                        </div>
+                        <div class="form-group">
+                            <%= f.check_box :is_shampoo %>Shampoo
+                        </div>
+                    </div>
+                        <div class="col-md-4">
+                        <div class="form-group">
+                            <%= f.check_box :is_kitchen %>Kitchen
+                        </div>
+                        <div class="form-group">
+                            <%= f.check_box :is_breakfast %>Breakfast
+                        </div>
+                        <div class="form-group">
+                            <%= f.check_box :is_heating %>Heating
+                        </div>
+                        <div class="form-group">
+                            <%= f.check_box :is_air %>Air conditionning
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="from-group">
+                            <label>Price per night</label>
+                            <div class="input-group">
+                                <%= f.text_field :price, placeholder:"ex: 45€", class: "form-control" %>
+                            </div><div class="input-group-addon">€</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <%= f.check_box :active %>Listing active                   
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <%= f.submit "Submit my listing", class:"btn btn-primary" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
