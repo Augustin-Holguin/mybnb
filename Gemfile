@@ -66,3 +66,4 @@ end
 
 gem 'geocoder'
 gem 'jquery-ui-rails'
+gem 'ransack'

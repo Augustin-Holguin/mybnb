@@ -43,27 +43,12 @@
  
  <br>
  
-     <%= f.submit "Demande de réservation", id:" btn_book", class: "btn btn-primary wide", disabled: 'true' %> 
+     <%= f.submit "Demande de réservation", id:" btn_book", class: "btn btn-primary wide" %> 
  <% end %>
  
- <script>
+
  
- $(function() {
-       $('#reservation_start_date').datepicker({
-            dateFormat: 'dd-mm-yy',
-            monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-            dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S']
-        });
-     $('#reservation_end_date').datepicker({
-            dateFormat: 'dd-mm-yy',
-            monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-            dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S']
-       });
- });
- 
- </script>
- 
- <script>
+<script>
     function unavailable(date) {
         dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
         return [$.inArray(dmy, unavailableDates) == -1];
