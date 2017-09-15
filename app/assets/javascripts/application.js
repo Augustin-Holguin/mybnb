@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require toastr
+//= require rails-timeago-all
 //= require_tree .
 
 
