@@ -35,6 +35,32 @@
                 </tr>
             </tbody>
         </table>
+        <br>
+        <%= fields_for( :payment ) do |p| %>
+          <div class="row">
+               <div class="col-md-12">
+                    <div class="form-group col-md-9">
+                          <%= p.label :card_number, "Numéro CB", data: { stripe: 'label'} %>
+                          <%= p.text_field :card_number, class: "form-control", required: true, data: { stripe: 'number'} %>
+                  </div>
+                  <div class="form-group col-md-3">
+                       <%= p.label :card_cvv, "CVV", data: { stripe: 'label'} %>
+                       <%= p.text_field :card_cvv, class: "form-control", required: true, data: { stripe: 'cvv'} %>
+                   </div>
+              </div>
+             <div class="col-md-10">
+                  <div class="col-md-12">
+                     <%= p.label :card_expires, "Expire fin :", data: { stripe: 'label'} %>
+                  </div>
+                  <div class="form-group col-md-5">
+                      <%= p.select :card_expires_month, options_for_select(Payment.month_options), { include_blank: 'Mois' }, "data-stripe" => "exp-month", class: "form-control", required: true %>
+                  </div>
+                  <div class="form-group col-md-6">
+                          <%= p.select :card_expires_year, options_for_select(Payment.year_options.push), { include_blank: 'Année' }, class: "form-control", data: { stripe: "exp-year" }, required: true %>
+                  </div>
+              </div>
+         </div>
+        <% end %>
     </div>
  
      <%= f.hidden_field :room_id, value: @room.id %>
@@ -87,8 +113,6 @@
                         var end_date = $('#reservation_end_date').datepicker('getDate');
                         var diff = (end_date - start_date)/1000/60/60/24;
                         var days = Math.round(diff);
-                        
-                        
                         var input = {
                             'start_date': start_date,
                             'end_date': end_date,
@@ -115,10 +139,8 @@
                                         $('#reservation_sum').text(total);
                                         $('#reservation_total').val(total);
                                     }
-                                
                                 }
                             });
-                        
                     }
                 });
                 
@@ -138,12 +160,10 @@
                         var diff = (end_date - start_date)/1000/60/60/24;
                         var days = Math.round(diff);
                         
-                        
                         var input = {
                             'start_date': start_date,
                             'end_date': end_date,
                             'room_id': <%= @room.id %>
-                            
                         }
                             
                             $.ajax({
@@ -165,16 +185,11 @@
                                         $('#reservation_sum').text(total);
                                         $('#reservation_total').val(total);
                                     }
-                                
                                 }
                             });
-                        
                     }
                 });
-                
             }
         });
-        
-        
     });
 </script>

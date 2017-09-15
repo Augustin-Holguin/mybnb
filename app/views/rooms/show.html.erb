@@ -54,47 +54,53 @@
                         </div>
                     </div>
                 </div>
+                
+            <!-- Description -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>A propos de ce logement</h2>
+                    <p><%= @room.summary %></p>
+                </div>
             </div>
-            <div class="col-md-4">
-                <!-- Formulaire de réservation -->
-                <%= render 'reservations/form' %>
-            </div>    
-        </div>
-        
-        <!-- Description -->
-        <div class="row">
-            <div class="col-md-12">
-                <h2>A propos de ce logement</h2>
-                <p><%= @room.summary %></p>
-            </div>
-        </div>
-        
-        <!-- Equipements -->
-        <div class="row">
-            <div class="col-md-2">
-                <p>Equipements</p>
-            </div>
-            <div class="col-md-10">
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul class="equipments">
-                            <li class="<%= 'text-line-through' if !@room.is_wifi %>">Wifi</li>
-                            <li class="<%= 'text-line-through' if !@room.is_tv %>">Télévision</li>
-                            <li class="<%= 'text-line-through' if !@room.is_closet %>">Penderie/Commode</li>
-                            <li class="<%= 'text-line-through' if !@room.is_shampoo %>">Shampoing</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="equipments">
-                            <li class="<%= 'text-line-through' if !@room.is_kitchen %>">Cuisine</li>
-                            <li class="<%= 'text-line-through' if !@room.is_breakfast %>">Petit déjeuner</li>
-                            <li class="<%= 'text-line-through' if !@room.is_heating %>">Chauffage</li>
-                            <li class="<%= 'text-line-through' if !@room.is_air %>">Climatisation</li>
-                        </ul>
+            
+            <br>
+            
+            <!-- Equipements -->
+            <div class="row">
+                <div class="col-md-2">
+                    <p>Equipements</p>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="equipments">
+                                <li class="<%= 'text-line-through' if !@room.is_wifi %>">Wifi</li>
+                                <li class="<%= 'text-line-through' if !@room.is_tv %>">Télévision</li>
+                                <li class="<%= 'text-line-through' if !@room.is_closet %>">Penderie/Commode</li>
+                                <li class="<%= 'text-line-through' if !@room.is_shampoo %>">Shampoing</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="equipments">
+                                <li class="<%= 'text-line-through' if !@room.is_kitchen %>">Cuisine</li>
+                                <li class="<%= 'text-line-through' if !@room.is_breakfast %>">Petit déjeuner</li>
+                                <li class="<%= 'text-line-through' if !@room.is_heating %>">Chauffage</li>
+                                <li class="<%= 'text-line-through' if !@room.is_air %>">Climatisation</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+                    
+                </div>
+                <div class="col-md-4">
+                    <!-- Formulaire de réservation -->
+                    <%= render 'reservations/form' %>
+                </div>    
+            </div>
+        
+        <br>
+        <hr>
         
         <!-- Carousel -->
         <div class="row">
@@ -137,8 +143,7 @@
         <hr>
         
         <!-- Reviews -->
- 
-         <div class="row">
+        <div class="row">
             <div class="col-md-12">
                 <h3><%= pluralize(@reviews.count, 'commentaire') %> <span id="average_rating"></span> (<%= @reviews.count %>)</h3>
                 <div class="container">
@@ -186,7 +191,6 @@
         </div>
         
         <!-- Logements à proximité -->
-         
          <h3>A proximité...</h3>
          <div class="row">
              <% for room in @room.nearbys(20).limit(3) %>
