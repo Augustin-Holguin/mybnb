@@ -9,12 +9,14 @@
             </div>
         <% end %>
         
-        
         <div class="panel panel-default">
             <div class="panel-heading">Verify</div>
             <div class="panel-body">
-                Email: <%= @user.email %><br>
-                Phone: <%= @user.phone_number %>
+                <% if @user.confirmed_at %>
+                    Email confirmed_at
+                <% else %>
+                    Email not confirmed
+                <% end %>
             </div>
         </div>
     </div>
