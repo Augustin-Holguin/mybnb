@@ -69,3 +69,5 @@ end
 gem 'geocoder'
 gem 'jquery-ui-rails'
 gem 'ransack'
+gem 'omniauth'
+gem 'omniauth-facebook'
