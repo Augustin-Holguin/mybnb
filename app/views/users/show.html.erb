@@ -12,11 +12,8 @@
         <div class="panel panel-default">
             <div class="panel-heading">Verify</div>
             <div class="panel-body">
-                <% if @user.confirmed_at %>
-                    Email confirmed_at
-                <% else %>
-                    Email not confirmed
-                <% end %>
+                Email: <%= @user.email %><br>
+                Phone: <%= @user.phone_number %>
             </div>
         </div>
     </div>
