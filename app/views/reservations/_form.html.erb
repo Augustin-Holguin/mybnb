@@ -3,19 +3,19 @@
     <div class="row">
         <div class="col-md-12 price_tag">
             <span>€ <%= @room.price %></span>
-            <span class="pull-right">Par nuit</span>
+            <span class="pull-right">Per night</span>
         </div>
     </div>
 
     <div class="row">
         
         <div class="col-md-6">
-        <label>Arrivée</label>
+        <label>Arrival</label>
         <%= f.text_field :start_date, readonly: 'true', placeholder: 'jj/mm/aaaa', class: 'form-control' %>
         </div>
  
         <div class="col-md-6">
-        <label>Départ</label>
+        <label>Leaving</label>
         <%= f.text_field :end_date, readonly: 'true', placeholder: 'jj/mm/aaaa', class: 'form-control', disabled: 'true' %>
         </div>
      </div>
@@ -45,19 +45,19 @@
                           <%= p.text_field :card_number, class: "form-control", required: true, data: { stripe: 'number'} %>
                   </div>
                   <div class="form-group col-md-3">
-                       <%= p.label :card_cvv, "CVV", data: { stripe: 'label'} %>
+                       <%= p.label :card_cvv, "Security code", data: { stripe: 'label'} %>
                        <%= p.text_field :card_cvv, class: "form-control", required: true, data: { stripe: 'cvv'} %>
                    </div>
               </div>
              <div class="col-md-10">
                   <div class="col-md-12">
-                     <%= p.label :card_expires, "Expire fin :", data: { stripe: 'label'} %>
+                     <%= p.label :card_expires, "Expiry date :", data: { stripe: 'label'} %>
                   </div>
                   <div class="form-group col-md-5">
-                      <%= p.select :card_expires_month, options_for_select(Payment.month_options), { include_blank: 'Mois' }, "data-stripe" => "exp-month", class: "form-control", required: true %>
+                      <%= p.select :card_expires_month, options_for_select(Payment.month_options), { include_blank: 'Month' }, "data-stripe" => "exp-month", class: "form-control", required: true %>
                   </div>
                   <div class="form-group col-md-6">
-                          <%= p.select :card_expires_year, options_for_select(Payment.year_options.push), { include_blank: 'Année' }, class: "form-control", data: { stripe: "exp-year" }, required: true %>
+                          <%= p.select :card_expires_year, options_for_select(Payment.year_options.push), { include_blank: 'Year' }, class: "form-control", data: { stripe: "exp-year" }, required: true %>
                   </div>
               </div>
          </div>
@@ -70,7 +70,7 @@
  
  <br>
  
-     <%= f.submit "Demande de réservation", id:"btn_book", class: "btn btn-primary wide", disabled: 'true' %> 
+     <%= f.submit "Booking demand", id:"btn_book", class: "btn btn-primary wide", disabled: 'true' %> 
  <% end %>
  
 

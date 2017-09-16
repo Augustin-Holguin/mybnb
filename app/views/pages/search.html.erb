@@ -37,16 +37,16 @@
                 <%= search_form_for @search, url: search_path do |f| %>
                     <div class="row">
                         <div class="col-md-3">
-                            <%= text_field_tag :start_date, params[:start_date], placeholder:"Arrivée", class:"form-control" %>
+                            <%= text_field_tag :start_date, params[:start_date], placeholder:"Arrival", class:"form-control" %>
                         </div>
                         <div class="col-md-3">
-                            <%= text_field_tag :end_date, params[:end_date], placeholder:"Départ", class:"form-control" %>
+                            <%= text_field_tag :end_date, params[:end_date], placeholder:"Leaving", class:"form-control" %>
                         </div>
                         <div class="col-md-3">
-                            <%= f.text_field :price_gteq, placeholder: "Budget min", class: "form-control" %>
+                            <%= f.text_field :price_gteq, placeholder: "Min budget", class: "form-control" %>
                         </div>
                         <div class="col-md-3">
-                            <%= f.text_field :price_lteq, placeholder: "Budget max", class: "form-control" %>
+                            <%= f.text_field :price_lteq, placeholder: "Max budget", class: "form-control" %>
                         </div>
                     </div>
                     
@@ -54,13 +54,13 @@
                     
                     <div class="row">
                         <div class="col-md-4">
-                            <%= check_box_tag "q[room_type_eq_any][]","Logement entier" %> Logement entier
+                            <%= check_box_tag "q[room_type_eq_any][]","Logement entier" %> Entire accommodation
                         </div>
                         <div class="col-md-4">
-                            <%= check_box_tag "q[room_type_eq_any][]","Chambre privée" %> Chambre privée
+                            <%= check_box_tag "q[room_type_eq_any][]","Chambre privée" %> Private room
                         </div>
                         <div class="col-md-4">
-                            <%= check_box_tag "q[room_type_eq_any][]","Chambre partagée" %> Chambre partagée
+                            <%= check_box_tag "q[room_type_eq_any][]","Chambre partagée" %> Shared room
                         </div>
                     </div>
                     
@@ -69,28 +69,28 @@
                     <div class="row">
                         <div class="col-md-4 select">
                             <div class="form-group">
-                                <label>Voyageurs ?</label>
-                                <%= f.select :accomodate_gteq, [["1 voyageur",1],["2 voyageurs",2],
-                                ["3 voyageurs",3], ["4 voyageurs",4] ,["5 voyageurs",5],
-                                ["6 voyageurs",6]], prompt:"A sélectionner...",
+                                <label>People ?</label>
+                                <%= f.select :accomodate_gteq, [["1 person",1],["2 persons",2],
+                                ["3 persons",3], ["4 persons",4] ,["5 persons",5],
+                                ["6 persons",6]], prompt:"Select...",
                                 class:"form-control" %>
                             </div>
                         </div>
                         
                         <div class="col-md-4 select">
                             <div class="form-group">
-                                <label>Chambres ?</label>
+                                <label>Bedrooms ?</label>
                                 <%= f.select :bed_room_gteq, [["1",1],["2",2],
-                                ["3",3], ["4",4]], prompt:"A sélectionner...",
+                                ["3",3], ["4",4]], prompt:"Select...",
                                 class:"form-control" %>
                             </div>
                         </div>
                         
                         <div class="col-md-4 select">
                             <div class="form-group">
-                                <label>Salles de bain ?</label>
+                                <label>Bathrooms ?</label>
                                 <%= f.select :bath_room_gteq, [["1",1],["2",2],
-                                ["3",3], ["4",4]], prompt:"A sélectionner...",
+                                ["3",3], ["4",4]], prompt:"Select...",
                                 class:"form-control" %>
                             </div>
                         </div>
@@ -103,32 +103,32 @@
                             <%= check_box_tag "q[is_wifi_eq]", true %> Wifi
                         </div>
                         <div class="col-md-4">
-                            <%= check_box_tag "q[is_tv_eq]", true %> Télévision
+                            <%= check_box_tag "q[is_tv_eq]", true %> TV
                         </div>
                         <div class="col-md-4">
-                            <%= check_box_tag "q[is_closet_eq]", true %> Penderie
+                            <%= check_box_tag "q[is_closet_eq]", true %> Closet
                         </div>
                         <div class="col-md-4">
-                            <%= check_box_tag "q[is_shampoo_eq]", true %> Shampoing
+                            <%= check_box_tag "q[is_shampoo_eq]", true %> Shampoo
                         </div>
                         <div class="col-md-4">
-                            <%= check_box_tag "q[is_kitchen_eq]", true %> Cuisine
+                            <%= check_box_tag "q[is_kitchen_eq]", true %> Kitchen
                         </div>
                         <div class="col-md-4">
-                            <%= check_box_tag "q[is_breakfast_eq]", true %> Petit déjeuner
+                            <%= check_box_tag "q[is_breakfast_eq]", true %> Breakfast
                         </div>
                         <div class="col-md-4">
-                            <%= check_box_tag "q[is_heating_eq]", true %> Chauffage
+                            <%= check_box_tag "q[is_heating_eq]", true %> Heating
                         </div>
                         <div class="col-md-4">
-                            <%= check_box_tag "q[is_air_eq]", true %> Climatisation
+                            <%= check_box_tag "q[is_air_eq]", true %> Air conditioning
                         </div>
                     </div>
                     
                     <br>
                     
                     <div class="row">
-                        <%= f.submit "Rechercher", class:"btn btn-primary" %>
+                        <%= f.submit "Search", class:"btn btn-primary" %>
                     </div>
                     
                     
@@ -140,7 +140,7 @@
                 
                 <div class="row">
                     <% if @arrRooms.empty? %>
-                        Aucune annonce ne correpond à votre recherche.
+                        No results match your search.
                     <% else %>
                         <% @arrRooms.each do |room| %>
                         <div class="col-md-4">

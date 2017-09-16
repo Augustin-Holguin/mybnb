@@ -4,7 +4,7 @@
         
         <% if current_user != @user %>
             <div class="row-space-2">
-               <%= link_to "Envoyer un message", conversations_path(sender_id: current_user.id, 
+               <%= link_to "Send a message", conversations_path(sender_id: current_user.id, 
                recipient_id: @user.id), method: 'post', class: "btn btn-primary wide" %>
             </div>
         <% end %>
@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <h4>Annonces (<%= @rooms.length %>)</h4><br>
+    <h4>Accommodations (<%= @rooms.length %>)</h4><br>
     <div class="row">
        <% @rooms.each do |room| %>
        <div class="col-md-4">
@@ -40,7 +40,7 @@
        <% end %>
     </div>
     
-    <h4>Evaluations</h4><br>
+    <h4>Ratings</h4><br>
     <% @rooms.each do |room| %>
       <% if !room.reviews.blank? %>
       <% room.reviews.each do |review| %>
